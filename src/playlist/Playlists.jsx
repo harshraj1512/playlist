@@ -6,9 +6,9 @@ import Navbar from '../components/Navbar';
 function Playlists() {
   return (
     <>
-    <div className="flex gap-x-10">
+    <div className=" min-h-screen flex gap-x-10">
         <Sidemenu/>
-        <Navbar/>
+        <Playlist/>
     </div>
     </>
   )

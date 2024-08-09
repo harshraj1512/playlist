@@ -56,8 +56,8 @@ function Sidemenu() {
 
     return (
         <>
-            <div className="">
-                <div className={`${open ? "w-72" : "w-20"} duration-300 h-screen p-5 pt-8 bg-[#27272F] relative `}>
+            <div className="min-h-screen pt-6 pl-4 ">
+                <div className={`${open ? "w-72" : "w-20"} duration-300 p-5 pt-8 bg-[#27272F] relative rounded-lg`}>
                     <img src="../src/assets/control.png" className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-3 border-[#27272F] ${!open && "rotate-180"}`}
                         onClick={() => setOpen(!open)}
                     />
