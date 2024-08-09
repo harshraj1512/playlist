@@ -7,7 +7,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 function Navbar() {
   return (
     <>
-      <div className="min-w-fit container pr-4 pt-6">
+      <div className="min-w-fit container  pt-6">
         <div className="navbar bg-[#27272F] rounded-xl ">
           <div className="flex-1">
             <a className="btn btn-ghost text-xl">Design Studio</a>
