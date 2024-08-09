@@ -1,14 +1,13 @@
 import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
-import Sidemenu from './components/Sidemenu';
-import Playlist from './components/Playlist';
 import Playlists from './playlist/Playlists';
+import Home from './Home/Home';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Sidemenu/>} />
+        <Route path="/" element={<Home/>} />
         <Route path="/playlist" element={<Playlists/>} />
       </Routes>
     </div>

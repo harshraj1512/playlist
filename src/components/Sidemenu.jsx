@@ -51,8 +51,13 @@ function Sidemenu() {
     const handleclick = (itemclick) =>{
         if(itemclick === "Product Playlist"){
             navigate("/playlist")
+        } else if (itemclick === "Revenue") {
+            navigate("/"); 
         }
-    }
+    };
+    const handleLogoClick = () => {
+        navigate("/"); // 
+    };
 
     return (
         <>
@@ -62,7 +67,7 @@ function Sidemenu() {
                         onClick={() => setOpen(!open)}
                     />
                     <div className="gap-x-4 items-center ">
-                        <img src={logo} className="cursor-pointer origin-left duration-300 w-32" />
+                        <img src={logo} className="cursor-pointer origin-left duration-300 w-32" onClick={ handleLogoClick} />
                     </div>
                     <ul className={`pt-12 ${!open && "pt-20"}`}>
                         {Menus.map((menu, index) => (
