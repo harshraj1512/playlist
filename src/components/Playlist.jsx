@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { IoMdLink } from "react-icons/io";
 import axios from "axios";
+import Cards from "./Cards";
+
 
 function Playlist() {
   const [playlists, setPlaylists] = useState([]);
@@ -30,6 +32,35 @@ function Playlist() {
     getplay();
   }, []);
 
+  //feed
+  useEffect(() => {
+    const getfeed = async () => {
+      try {
+        const res = await axios.post(
+          "https://5yiek6g5g0.execute-api.ap-south-1.amazonaws.com/Prod/api/engt/getfeeds_v1",
+          {
+            Index: 1, 
+            ContentType: [2], 
+            IsTagged: false, 
+            URL: ""
+          },
+          {
+            headers: {
+              "X-Api-Key": "MXqO3cDcr492OTPGZZAot7akPvLmfKbA4bKt5Ryr",
+              "X-Tenant-Key": "TYKE070323"
+            }
+          }
+        );
+        console.log("feed ready:", res.data);
+        setPlaylists(res.data);
+      } catch (error) {
+        console.error("Error fetching playlist:", error);
+      }
+    };
+
+    getfeed();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col min-w-fit container gap-y-4 ">
@@ -47,12 +78,11 @@ function Playlist() {
         </div>
         {/* Below content */}
         <div className="grid grid-cols-1 md:grid-cols-4">
-          hellp
-        {/* {
-            book.map((item) => (
-              <Cards key={item.id} item={item} />
-            ))
-        } */}
+        {/* <Cards 
+          playlists={playlists} 
+          handlePlaylistClick={handlePlaylistClick} 
+          getCoverImage={getCoverImage} 
+        /> */}
         </div>
       </div>
     </>
