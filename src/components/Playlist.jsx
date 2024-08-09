@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { IoMdLink } from "react-icons/io";
+import axios from "axios";
 
 function Playlist() {
+  const [playlists, setPlaylists] = useState([]);
+  useEffect(() => {
+    const getplay = async () => {
+      try {
+        const res = await axios.post(
+          "https://5yiek6g5g0.execute-api.ap-south-1.amazonaws.com/Prod/api/engt/getAllPlayList",
+          {
+            Content_Type: 2
+          },
+          {
+            headers: {
+              "X-Api-Key": "MXqO3cDcr492OTPGZZAot7akPvLmfKbA4bKt5Ryr",
+              "X-Tenant-Key": "TYKE070323"
+            }
+          }
+        );
+        console.log("playlist ready:", res.data);
+        setPlaylists(res.data);
+      } catch (error) {
+        console.error("Error fetching playlist:", error);
+      }
+    };
+
+    getplay();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col min-w-fit container gap-y-4 ">
@@ -19,10 +46,13 @@ function Playlist() {
           </button>
         </div>
         {/* Below content */}
-        <div className="">
-          <div>
-            
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-4">
+          hellp
+        {/* {
+            book.map((item) => (
+              <Cards key={item.id} item={item} />
+            ))
+        } */}
         </div>
       </div>
     </>
